@@ -40,7 +40,7 @@ def MeasurementCreate(request):
 @login_required
 def VariableList(request):
     role = getRole(request)
-    if role == "Gerencia Campus":
+    if role in ("Gerencia Campus", "Supervisor"):
         queryset = Variable.objects.all()
         context = {
             'variable_list': queryset
