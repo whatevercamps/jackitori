@@ -10,4 +10,6 @@ urlpatterns = [
     url(r'^measurementcreate/$', csrf_exempt(views.MeasurementCreate), name='measurementCreate'),
     url(r'^variables/', views.VariableList, name='variableList'),
     url(r'^variablecreate/$', csrf_exempt(views.VariableCreate), name='variableCreate'),
+    url(r'^', include('django.contrib.auth.urls')),
+    url(r'^', include('social_django.urls')),
 ]

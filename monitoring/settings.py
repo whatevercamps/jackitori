@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'measurements',
+    'social_django'
 ]
 
 MIDDLEWARE = [
@@ -81,7 +82,7 @@ DATABASES = {
         'USER': 'monitoring_user',
         'PASSWORD': 'isis2503',
         'HOST': 'localhost',
-        'PORT': '',
+        'PORT': '5432',
     }
 }
 
@@ -128,7 +129,22 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static', 'media')
 MEDIA_URL = '/static/media/'
 
-# Extra places for collectstatic to find static files.
+# Extra places for collectsls
+# tatic to find static files.
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
+
+
+LOGIN_URL = "/login/auth0"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "https://isis2503-whatervercamps.auth0.com/v2/logout?returnTo=http%3A%2F%2F99.79.65.47:8000"
+SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes
+SOCIAL_AUTH_AUTH0_DOMAIN = 'isis2503-whatevercamps.auth0.com'
+SOCIAL_AUTH_AUTH0_KEY = 'tTbMc5YpfBuTmK7x6jHjcJ10myeWftGc'
+SOCIAL_AUTH_AUTH0_SECRET = 'hKnJLV1zhOp5MczjMPAJ8RdNxghYOLUeu7vwngM_m87MVO_XoX16LOV20qxJpCVj'
+SOCIAL_AUTH_AUTH0_SCOPE = [
+ 'openid',
+ 'profile'
+]
+AUTHENTICATION_BACKENDS = {'measurements.auth0backend.Auth0', 'django.contrib.auth.backends.ModelBackend'}

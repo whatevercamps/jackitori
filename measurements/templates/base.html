@@ -35,12 +35,25 @@
                 </li>
             </ul>
 
+            <form class="form-inline my-2 my-lg-0">
+                {% if user.is_authenticated %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a style="font-size:120%" class="nav-link">{{ user.username }}</a></li>
+                    <li><a style="font-size:120%; padding-right:20px" class="nav-link" href="/logout">Log out</a></li>
+                </ul>
+                {% else %}
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a style="font-size:120%; padding-right:20px" class="navbar-link" href="/login/auth0">Login</a></li>
+                </ul>
+                {% endif %}
+            </form>
+
           </div>
         </nav>
 
 
         <main> 
-          <div class="container" style="min-height: 580px;">
+          <div class="container" style="min-height: 460px;">
           {% block content %} 
           {% endblock %} 
           </div>
@@ -54,6 +67,8 @@
             <div style="padding: 30px">
                 <div style="float: left; width: 400px;" >ISIS-2503 Arquitectura y Diseño de Software</div>
                 <div style="float: right; width: 220px;" >Universidad de los Andes</div>
+                <br>
+                <div style="float: left; width: 400px;" ><i>Iván David Alfonso Díaz</i></div>
             </div>
             <br>
 
