@@ -138,7 +138,7 @@ STATICFILES_DIRS = (
 
 LOGIN_URL = "/login/auth0"
 LOGIN_REDIRECT_URL = "/"
-LOGOUT_REDIRECT_URL = "https://isis2503-whatervercamps.auth0.com/v2/logout?returnTo=http%3A%2F%2F99.79.65.47:8000"
+LOGOUT_REDIRECT_URL = "/"
 SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes
 SOCIAL_AUTH_AUTH0_DOMAIN = 'isis2503-whatevercamps.auth0.com'
 SOCIAL_AUTH_AUTH0_KEY = 'tTbMc5YpfBuTmK7x6jHjcJ10myeWftGc'

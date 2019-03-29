@@ -19,14 +19,11 @@ class Auth0(BaseOAuth2):
 
     def get_user_id(self, details, response):
         """Return current user id."""
-        return details['user_role'] #cambiando
+        return details['user_id'] #cambiando
 
     def get_user_details(self, response):
         url = 'https://' + self.setting('DOMAIN') + '/userinfo'
         headers = {'authorization': 'Bearer ' + response['access_token']}
         resp = requests.get(url, headers=headers)
-        userinfo = resp.json()
-        return {'username': userinfo['nickname'],
-                'first_name': userinfo['name'],
-                'picture': userinfo['picture'],
-                'user_role': userinfo['sub']}
+        userinfo = resp.json();print('backend: ' + str(userinfo))
+        return {'user_id': userinfo['http://isis2503-whatevercamps:auth0:com/role']}
